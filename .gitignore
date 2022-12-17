@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/BasicCRUDPicture/bin/Debug/net5.0
+/BasicCRUDPicture/obj

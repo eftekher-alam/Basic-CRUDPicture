@@ -1,0 +1,25 @@
+﻿@model BasicCRUDPicture.Models.Picture
+@{ 
+    ViewData["Title"] = "Delete";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <form method="post" asp-controller="Picture" asp-action="DeletePost" asp-route-id="@Model.Id">
+                <div class="form-group">
+                    <label asp-for="PicName"></label>
+                    <input asp-for="PicName" class="form-control" readonly />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo"></label>
+                    <img src="~/@Model.Photo" class="rounded-circle" width="50px" height="50px" />
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+                    <a asp-controller="Picture" asp-action="Index" class="btn btn-sm btn-outline-success">Cancle</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

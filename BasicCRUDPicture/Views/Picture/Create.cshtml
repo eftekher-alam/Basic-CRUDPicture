@@ -1,0 +1,34 @@
+﻿@model BasicCRUDPicture.ViewModels.PictureViewModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h3 class="text-info text-center">Create Picture</h3>
+            <hr />
+
+            <form method="post" enctype="multipart/form-data" asp-controller="Picture" asp-action="Create">
+                <div class="form-group">
+                    <label asp-for="PicName"></label>
+                    <input asp-for="PicName" class="form-control" />
+                    <span asp-validation-for="PicName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo"></label>
+                    <input asp-for="Photo" type="file" class="form-control-file" />
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-sm btn-outline-success m-2 w-25">Save</button>
+                        <a asp-controller="Picture" asp-action="Index" class="btn btn-sm btn-outline-danger m-2 w-25">Cancle</a>
+                    </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @{ <partial name="_ValidationScriptsPartial" />}
+ }

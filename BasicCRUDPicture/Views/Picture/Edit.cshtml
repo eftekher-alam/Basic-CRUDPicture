@@ -1,0 +1,42 @@
+﻿@model BasicCRUDPicture.ViewModels.PictureViewModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6 offset-3">
+            <h3 class="text-info text-center">Edit Picture</h3>
+            <hr />
+            <form method="post" enctype="multipart/form-data" asp-controller="Picture" asp-action="Edit" asp-route-id="@Model.Id">
+                <div class="form-group">
+                    <label asp-for="PicName"></label>
+                    <input asp-for="PicName" class="form-control" />
+                    <span asp-validation-for="PicName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo"></label>
+                    <div class="row">
+                        <div class="col-10">
+                            <input asp-for="Photo" type="file" class="form-control-file" />
+                        </div>
+                        <div class="col-2">
+                            <img src="~/@ViewBag.CurrentPicture" class="rounded-circle" width="40px" height="40px" />
+                        </div>
+                    </div>
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-sm btn-outline-success m-2 w-25">Update</button>
+                    <a asp-controller="Picture" asp-action="Index" class="btn btn-sm btn-outline-danger m-2 w-25">Cancle</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

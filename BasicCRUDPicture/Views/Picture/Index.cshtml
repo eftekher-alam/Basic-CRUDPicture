@@ -1,0 +1,41 @@
+﻿@model IEnumerable<BasicCRUDPicture.Models.Picture>
+@{ 
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-10 offset-1">
+            <h3 class="text-info text-center">Picture List</h3>
+            <div class="text-left"><a asp-controller="Picture" asp-action="Create" class="btn btn-sm btn-outline-primary">Create</a></div>
+            <hr />
+
+            @if(Model.Count() > 0)
+            {
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Picture Name</th>
+                            <th>Picture</th>
+                            <th>Modifiy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var picture in Model)
+                        {
+                            <tr>
+                                <td>@picture.PicName</td>
+                                <td>
+                                    <img src="~/@picture.Photo" class="rounded-circle" width="30px" height="30px" />
+                                </td>
+                                <td>
+                                    <a asp-controller="Picture" asp-action="Edit" asp-route-id="@picture.Id" class="btn btn-sm btn-outline-primary">Edit</a>
+                                    <a asp-controller="Picture" asp-action="Delete" asp-route-id="@picture.Id" class="btn btn-sm btn-outline-danger">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
